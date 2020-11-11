@@ -2,25 +2,15 @@
 
 ## Firewall
 
-```hcl
-From 		| To 		| Protocol 					| Port 			| How Used
-----------------+---------------+---------------+---------------+------------------------------------------------
-VM Storage 	| AWS 		| TCP 		| 443(HTTPS)	| Para comunicação de um VM AWS Storage Gateway 
-Gateway		|		| 		|		| para um AWS service endpoint.
-----------------+---------------+---------------+---------------+------------------------------------------------
-Your web	| VM Storage 	| TCP 		| 80(HTTP)	| Porta 80 é usada apenas durante a ativação 
-browser		| Gateway 	|		|		| do Storage Gateway appliance.
-----------------+---------------+---------------+---------------+------------------------------------------------
-VM Storage 	| DNS 		| UDP/TCP 	| 53(DNS)	| Para comunicação entre a VM Storage Gateway
-Gateway		|		| 		|		| e DNS server.
-----------------+---------------+---------------+---------------+------------------------------------------------
-VM Storage 	| NTP 		| UDP		| 123(NTP)	| Usado para sincronizar a hora da VM com a
-Gateway		|		|  		|		| hora do host.
-----------------+---------------+---------------+---------------+------------------------------------------------
-VM Storage 	| AWS 		| TCP		| 22(SSH)	| Não precisa dessa porta aberta para a operação
-Gateway		|		|  		|		| normal do seu gateway, mas é necessária 
-		|		|		|		| para a troubleshooting.
-```
+
+From | To  | Protocol | Port| How Used |
+-----| --- | -------- |----- | ---------| 
+VM Storage Gateway | AWS | TCP 	| 443(HTTPS) | Para comunicação de um VM AWS Storage Gateway para um AWS service endpoint.
+Web Browser | VM Storage Gateway | TCP | 80(HTTP) | Porta 80 é usada apenas durante a ativação.
+VM Storage | DNS | UDP/TCP | 53(DNS) | Para comunicação entre a VM Storage Gateway e DNS server.
+VM Storage Gateway | NTP | UDP | 123(NTP) | Usado para sincronizar a hora da VM com a host.
+VM Storage Gateway | AWS | TCP | 22(SSH) | Não precisa dessa porta aberta para a operação normal do seu gateway, mas é necessária para a troubleshooting.
+
 
 ## Usage
 ```hcl
