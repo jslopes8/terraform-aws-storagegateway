@@ -2,7 +2,7 @@
 
 ## Firewall
 
-```bash
+```hcl
 From 		| To 			| Protocol 					| Port 			| How Used
 ------------+---------------+---------------------------+---------------+------------------------------------------------
 VM Storage 	| AWS 			| Transmission 				| 443(HTTPS)	| Para comunicação de um VM AWS Storage Gateway 
