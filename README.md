@@ -11,6 +11,17 @@ VM Storage | DNS | UDP/TCP | 53(DNS) | Para comunicação entre a VM Storage Gat
 VM Storage Gateway | NTP | UDP | 123(NTP) | Usado para sincronizar a hora da VM com a host.
 VM Storage Gateway | AWS | TCP | 22(SSH) | Não precisa dessa porta aberta para a operação normal do seu gateway, mas é necessária para a troubleshooting.
 
+A tabela a seguir lista as portas necessárias que devem ser abertas para um file gateway usando o protocolo de Server Message Block (SMB). 
+
+File share type: SMB
+Network Element	| Protocol | Port| Notes|
+--------------- | -------- |----| ------|
+File share |TCP/UDP SMBv2 | 139 |Serviço de sessão de transferência de dados File sharing.
+.|TCP/UDP SMBv3| 445 |.
+Microsoft Active Directory |UDP NetBIOS | 137|Service names
+.||138|Serviço de datagram
+.|TCP LDAP| 389|Directory System Agent (DSA; conexão do client
+.|TCP LDAPS	|636|LDAPS - Lightweight Directory Access Protocol (LDAP) over Secure Socket Layer (SSL)
 
 ## Usage
 ```hcl
