@@ -3,7 +3,7 @@
 ## Usage
 ```hcl
 module "storage_exemplo" {
-    source = ""
+    source = "git@github.com:jslopes8/terraform-aws-storagegateway.git?ref=v0.1"
 
     gateway_name        = "GW-Demo"
     s3_location         = local.s3_location
