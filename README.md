@@ -19,7 +19,7 @@ module "storage_exemplo" {
         authentication          = "GuestAccess"
         default_storage_class   = "S3_STANDARD"
         guess_mime_type         = "true"
-        location_arn            = module.s3_cdn_test.s3_arn[0]
+        location_arn            = module.s3_bucket.s3_arn[0]
         default_tags            = local.tags 
     }]
 
