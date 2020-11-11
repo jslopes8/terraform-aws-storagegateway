@@ -3,23 +3,23 @@
 ## Firewall
 
 ```hcl
-From 		| To 			| Protocol 					| Port 			| How Used
-------------+---------------+---------------------------+---------------+------------------------------------------------
-VM Storage 	| AWS 			| Transmission 				| 443(HTTPS)	| Para comunicação de um VM AWS Storage Gateway 
-Gateway		|				| Control Protocol (TCP) 	|				| para um AWS service endpoint.
-------------+---------------+---------------------------+---------------+------------------------------------------------
-Your web	| VM Storage 	| TCP 						| 80(HTTP)		| Porta 80 é usada apenas durante a ativação 
-browser		| Gateway 		|							|				| do Storage Gateway appliance.
-------------+---------------+---------------------------+---------------+------------------------------------------------
-VM Storage 	| DNS 			| User Datagram Protocol 	| 53(DNS)		| Para comunicação entre a VM Storage Gateway
-Gateway		|				|       (UDP)/UDP 			|				| e DNS server.
-------------+---------------+---------------------------+---------------+------------------------------------------------
-VM Storage 	| NTP 			| UDP					 	| 123(NTP)		| Usado para sincronizar a hora da VM com a
-Gateway		|				|  							|				| hora do host.
-------------+---------------+---------------------------+---------------+------------------------------------------------
-VM Storage 	| AWS 			| TCP					 	| 22(SSH)		| Não precisa dessa porta aberta para a operação
-Gateway		|				|  							|				| normal do seu gateway, mas é necessária 
-			|				|							|				| para a troubleshooting.
+From 		| To 		| Protocol 					| Port 			| How Used
+----------------+---------------+---------------+---------------+------------------------------------------------
+VM Storage 	| AWS 		| TCP 		| 443(HTTPS)	| Para comunicação de um VM AWS Storage Gateway 
+Gateway		|		| 		|		| para um AWS service endpoint.
+----------------+---------------+---------------+---------------+------------------------------------------------
+Your web	| VM Storage 	| TCP 		| 80(HTTP)	| Porta 80 é usada apenas durante a ativação 
+browser		| Gateway 	|		|		| do Storage Gateway appliance.
+----------------+---------------+---------------+---------------+------------------------------------------------
+VM Storage 	| DNS 		| UDP/TCP 	| 53(DNS)	| Para comunicação entre a VM Storage Gateway
+Gateway		|		| 		|		| e DNS server.
+----------------+---------------+---------------+---------------+------------------------------------------------
+VM Storage 	| NTP 		| UDP		| 123(NTP)	| Usado para sincronizar a hora da VM com a
+Gateway		|		|  		|		| hora do host.
+----------------+---------------+---------------+---------------+------------------------------------------------
+VM Storage 	| AWS 		| TCP		| 22(SSH)	| Não precisa dessa porta aberta para a operação
+Gateway		|		|  		|		| normal do seu gateway, mas é necessária 
+		|		|		|		| para a troubleshooting.
 ```
 
 ## Usage
